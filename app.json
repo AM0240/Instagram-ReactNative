@@ -1,0 +1,26 @@
+{
+  "expo": {
+    "name": "InstaCopy",
+    "description": "Instagram clone using React",
+    "slug": "instaCopy",
+    "privacy": "unlisted",
+    "sdkVersion": "35.0.0",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "primaryColor": "#cccccc",
+    "icon": "./assets/icons/instagram.png",
+    "loading": {
+      "icon": "./assets/icons/instagram.png",
+      "hideExponentText": false
+    },
+    "packagerOpts": {
+      "assetExts": ["ttf", "mp4", "otf", "xml"]
+    },
+    "ios": {
+      "bundleIdentifier": "com.ss"
+    },
+    "android": {
+      "package": "com.ss"
+    }
+  }
+}
