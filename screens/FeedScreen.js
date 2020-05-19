@@ -1,3 +1,6 @@
+// 메인스크린
+// 데이터베이스에서 목록을 가져와 출력
+
 import firebase from "firebase";
 import React, { Component } from "react";
 import { LayoutAnimation, RefreshControl } from "react-native";
@@ -5,6 +8,7 @@ import { LayoutAnimation, RefreshControl } from "react-native";
 import List from "../components/List";
 import Fire from "../Fire";
 
+// 화면에 로드할 글의 수
 const PAGE_SIZE = 5;
 console.disableYellowBox = true;
 export default class FeedScreen extends Component {
@@ -15,7 +19,9 @@ export default class FeedScreen extends Component {
   };
 
   componentDidMount() {
+    // 페이지 로드 되면
     if (Fire.shared.uid) {
+      // 5개의 글 로드
       this.makeRemoteRequest();
     } else {
       firebase.auth().onAuthStateChanged(user => {
@@ -34,6 +40,7 @@ export default class FeedScreen extends Component {
       };
       return {
         data,
+        // 시간별 정렬
         posts: Object.values(data).sort((a, b) => a.timestamp < b.timestamp)
       };
     });

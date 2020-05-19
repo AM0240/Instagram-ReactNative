@@ -10,6 +10,7 @@ import * as Permissions from 'expo-permissions';
 var user = firebase.auth().currentUser;
 var userUid, userName, userEmail, userPhoto;
 
+// 현재 유저의 이름과 사진을 가져옴
 firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
         user.providerData.forEach(function (profile) {
@@ -70,6 +71,8 @@ export default class updateProfileScreen extends Component {
 
             <Button bordered dark small icon
               title="확인" style={{alignSelf:'center',marginTop:60, justifyContent:'center', backgroundColor:'white', width:120,height:40}}          
+              
+              // 확인버튼 클릭 시 프로필 이름과 사진 업데이트하고 Main으로 이동
               onPress=
               {
                 () => 
@@ -116,6 +119,8 @@ export default class updateProfileScreen extends Component {
     componentDidMount() {
       this.getPermissionAsync();
     }
+
+    // 권한요청 거부 시
     getPermissionAsync = async () => {
       if (Constants.platform.ios) {
         const { status } = await Permissions.askAsync(Permissions.CAMERA_ROLL);
@@ -124,6 +129,8 @@ export default class updateProfileScreen extends Component {
         }
       }
     }
+
+    // 이미지 선택
     _pickImage = async () => {
       let result = await ImagePicker.launchImageLibraryAsync({
         mediaTypes: ImagePicker.MediaTypeOptions.All,

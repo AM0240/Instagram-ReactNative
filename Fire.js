@@ -1,35 +1,45 @@
+// https://docs.expo.io/versions/latest/guides/using-firebase/
+// 관련문서
+
 import uuid from 'uuid';
+
 import getUserInfo from './utils/getUserInfo';
 import shrinkImageAsync from './utils/shrinkImageAsync';
 import uploadPhoto from './utils/uploadPhoto';
 
 const firebase = require('firebase');
+
 require('firebase/firestore');
+
 const collectionName = 'postData';
 
+///////////////////
 var firebaseConfig = {
-  apiKey: "AIzaSyB7q7MrkEJxkHJ1k0GvQ7K3BJoSMcr7qFw",
-  authDomain: "instagram-with-react.firebaseapp.com",
-  databaseURL: "https://instagram-with-react.firebaseio.com",
-  projectId: "instagram-with-react",
-  storageBucket: "instagram-with-react.appspot.com",
-  messagingSenderId: "214525119735",
-  appId: "1:214525119735:web:c2a45da644368c049657f2"
+  apiKey: "AIzaSyCjVKhEKAJ4aSVnqpg-EUSbsAmIXMrs8sQ",
+  authDomain: "sns-by-team-int.firebaseapp.com",
+  databaseURL: "https://sns-by-team-int.firebaseio.com",
+  projectId: "sns-by-team-int",
+  storageBucket: "sns-by-team-int.appspot.com",
+  messagingSenderId: "322226380178",
+  appId: "1:322226380178:web:e897a963eec371ee3f754b"
 };
 
+
+///////////////////
 class Fire {
   constructor() {
     firebase.initializeApp({
-      apiKey: "AIzaSyB7q7MrkEJxkHJ1k0GvQ7K3BJoSMcr7qFw",
-      authDomain: "instagram-with-react.firebaseapp.com",
-      databaseURL: "https://instagram-with-react.firebaseio.com",
-      projectId: "instagram-with-react",
-      storageBucket: "instagram-with-react.appspot.com",
-      messagingSenderId: "214525119735",
-      appId: "1:214525119735:web:c2a45da644368c049657f2"
+      apiKey: 'AIzaSyCjVKhEKAJ4aSVnqpg-EUSbsAmIXMrs8sQ',
+      authDomain: 'sns-by-team-int.firebaseapp.com',
+      databaseURL: 'https://sns-by-team-int.firebaseio.com',
+      projectId: 'sns-by-team-int',
+      storageBucket: 'sns-by-team-int.appspot.com',
+      messagingSenderId: '322226380178',
     });
    
     firebase.firestore().settings({ timestampsInSnapshots: true });
+
+   
     firebase.auth().onAuthStateChanged(async user => {
       if (!user) {
         await firebase.auth().signInAnonymously();
@@ -37,6 +47,7 @@ class Fire {
     });
   }
 
+  // 데이터 다운로드
   getPaged = async ({ size, start }) => {
     let ref = this.collection.orderBy('timestamp', 'desc').limit(size);
     try {
@@ -47,14 +58,14 @@ class Fire {
       const querySnapshot = await ref.get();
       const data = [];
 
-      var deviceName='비로그인';
+      var deviceName='익명';
       var user = firebase.auth().currentUser;
       uid = user.uid;
 
       firebase.database().ref('/users/' + uid).on('value',
       function a(snapshot) 
       {
-        deviceName = (snapshot.val() && snapshot.val().name) || '비로그인';
+        deviceName = (snapshot.val() && snapshot.val().name) || '익명';
       }
       );
 
@@ -68,7 +79,7 @@ class Fire {
           const name = user.deviceName;
           const reduced = {
             key: doc.id,
-            name: (name || '???').trim(),
+            name: (name || 'Secret Duck').trim(),
             ...post,
           };
           data.push(reduced);
@@ -82,6 +93,7 @@ class Fire {
     }
   };
 
+  // 업로드 데이터
   uploadPhotoAsync = async uri => {
     const path = `${collectionName}/${this.uid}/${uuid.v4()}.jpg`;
     return uploadPhoto(uri, path);
@@ -117,7 +129,11 @@ class Fire {
   }
   get timestamp() {
     return Date.now();
-  } 
+  }
+
+  
 }
+
+
 Fire.shared = new Fire();
 export default Fire;

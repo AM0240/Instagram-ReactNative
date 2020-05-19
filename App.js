@@ -1,5 +1,8 @@
+// 리액트 네비게이션 import
 import { createBottomTabNavigator, createStackNavigator,} from 'react-navigation';
 import tabBarIcon from './utils/tabBarIcon';
+
+// 스크린 import
 import FeedScreen from './screens/FeedScreen';
 import NewPostScreen from './screens/NewPostScreen';
 import SelectPhotoScreen from './screens/SelectPhotoScreen';
@@ -8,8 +11,13 @@ import LoginScreen from './screens/LoginScreen';
 import LoadingScreen from './screens/LoadingScreen';
 import updateProfileScreen from './screens/updateProfileScreen';
 
+// 하단 네비게이션을 이용해 이동할 스크린 설정
 const navigator = createBottomTabNavigator(
   {
+	// 스크린이름: { 스크린, 네비게이션 아이콘, 이름 }
+
+
+	// 구글 로그인 테스트용
 	LoadingScreen: {
 	  screen: LoadingScreen,
 	  navigationOptions: {
@@ -18,14 +26,17 @@ const navigator = createBottomTabNavigator(
 		},
 	  },
 	
+	// 메인 스크린
 	Feed: {
 	  screen: FeedScreen,
 	  navigationOptions: {
+		// vector icon 사용
 		tabBarIcon: tabBarIcon('home'),
 		title: '홈',
 		},
 	  },
 
+	// 업로드 스크린
 	Photo: {
 		screen: SelectPhotoScreen,
 		navigationOptions: {
@@ -34,6 +45,7 @@ const navigator = createBottomTabNavigator(
 		},
 	  },
 
+	// 프로필 스크린
 	Profile: {
 		screen: ProfileScreen,
 		navigationOptions: {
@@ -43,6 +55,7 @@ const navigator = createBottomTabNavigator(
 		},
   },
   {
+	// 활성화 된 탭은 검정색, 비활성화 된 탭은 회색, title을 표시
 	tabBarOptions: {
 	  showLabel: true,
 	  activeTintColor: 'black',
@@ -51,12 +64,15 @@ const navigator = createBottomTabNavigator(
   },
 );
 
+// stackNavaigator에 navigator를 메인스크린으로하고 나머지는 하단에는 안보이지만 특정 이벤트 시 로드할 스크린 등록
 const stackNavigator = createStackNavigator(
   {
 	Main: {
 		screen: navigator,
-		navigationOptions: { title: '📸  인스타그램' },
+	  // 탭 표시줄 화면이 있을 때 앱 제목 설정
+		navigationOptions: { title: '📸  과기스타그램' },
 	},
+	// 이 스크린은 탭 표시줄이 없음
 	NewPost: NewPostScreen,
 	LoginScreen:LoginScreen,
 	LoadingScreen:LoadingScreen,

@@ -11,6 +11,8 @@ const options = {
   allowsEditing: true
 };
 
+// imagePicker와 카메라를 이용해 이미지 선택 가능하게 만듬
+
 export default class SelectPhotoScreen extends Component {
   state = {};
 

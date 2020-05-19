@@ -1,3 +1,5 @@
+// https://expo.github.io/vector-icons/
+
 import { MaterialIcons } from '@expo/vector-icons';
 import * as React from 'react';
 

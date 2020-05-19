@@ -1,3 +1,5 @@
+// 권한요청
+
 import * as Permissions from 'expo-permissions';
 import { Linking } from 'react-native';
 

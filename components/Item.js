@@ -10,7 +10,7 @@ export default class Item extends React.Component {
 
   componentDidMount() {
     if (!this.props.imageWidth) {
-      
+      // 웹 이미지의 크기설정
       Image.getSize(this.props.image, (width, height) => {
         this.setState({ width, height });
       });

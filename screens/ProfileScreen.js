@@ -7,6 +7,7 @@ import firebase from 'firebase';
 var user = firebase.auth().currentUser;
 var userUid, userName, userEmail, userPhoto;
 
+// firebase DB에서 현재 유저의 uid에 해당하는 데이터는 가져옴
 firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
         user.providerData.forEach(function (profile) {
@@ -28,10 +29,14 @@ firebase.auth().onAuthStateChanged(function(user) {
   });
 
 export default class ProfileScreen extends Component {
+
+    // 새로고침을 위한 유저이름과 프로필사진
     state = {
         textValue: userName,
         imageValue:userPhoto
-      }   
+      }
+      
+      // 새로고침 버튼누르면 이미지와 이름 재표시
       onPress = () => {  
         firebase.database().ref('/users/' + uid).once('value').then(function(snapshot) {
             userName = (snapshot.val() && snapshot.val().name) || '익명';
@@ -102,6 +107,7 @@ export default class ProfileScreen extends Component {
         );
     }
 }              
+ 
 const style = StyleSheet.create({
     container: {
         flex: 1,
