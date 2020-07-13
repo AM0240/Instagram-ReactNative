@@ -1,4 +1,3 @@
-// 리액트 네비게이션 import
 import { createBottomTabNavigator, createStackNavigator,} from 'react-navigation';
 import tabBarIcon from './utils/tabBarIcon';
 
@@ -15,7 +14,6 @@ import updateProfileScreen from './screens/updateProfileScreen';
 const navigator = createBottomTabNavigator(
   {
 	// 스크린이름: { 스크린, 네비게이션 아이콘, 이름 }
-
 
 	// 구글 로그인 테스트용
 	LoadingScreen: {
@@ -70,9 +68,8 @@ const stackNavigator = createStackNavigator(
 	Main: {
 		screen: navigator,
 	  // 탭 표시줄 화면이 있을 때 앱 제목 설정
-		navigationOptions: { title: '📸  과기스타그램' },
+		navigationOptions: { title: '📸  InstaCopy' },
 	},
-	// 이 스크린은 탭 표시줄이 없음
 	NewPost: NewPostScreen,
 	LoginScreen:LoginScreen,
 	LoadingScreen:LoadingScreen,

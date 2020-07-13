@@ -1,5 +1,4 @@
 // https://docs.expo.io/versions/latest/guides/using-firebase/
-// 관련문서
 
 import uuid from 'uuid';
 
@@ -13,28 +12,15 @@ require('firebase/firestore');
 
 const collectionName = 'postData';
 
-///////////////////
-var firebaseConfig = {
-  apiKey: "AIzaSyCjVKhEKAJ4aSVnqpg-EUSbsAmIXMrs8sQ",
-  authDomain: "sns-by-team-int.firebaseapp.com",
-  databaseURL: "https://sns-by-team-int.firebaseio.com",
-  projectId: "sns-by-team-int",
-  storageBucket: "sns-by-team-int.appspot.com",
-  messagingSenderId: "322226380178",
-  appId: "1:322226380178:web:e897a963eec371ee3f754b"
-};
-
-
-///////////////////
 class Fire {
   constructor() {
     firebase.initializeApp({
-      apiKey: 'AIzaSyCjVKhEKAJ4aSVnqpg-EUSbsAmIXMrs8sQ',
-      authDomain: 'sns-by-team-int.firebaseapp.com',
-      databaseURL: 'https://sns-by-team-int.firebaseio.com',
-      projectId: 'sns-by-team-int',
-      storageBucket: 'sns-by-team-int.appspot.com',
-      messagingSenderId: '322226380178',
+      apiKey: "AIzaSyBotIVgG32wNzb84uiGU71p3cuoEvCnktc",
+      authDomain: "instacopy-expo.firebaseapp.com",
+      databaseURL: "https://instacopy-expo.firebaseio.com",
+      projectId: "instacopy-expo",
+      storageBucket: "instacopy-expo.appspot.com",
+      messagingSenderId: "879983138338",
     });
    
     firebase.firestore().settings({ timestampsInSnapshots: true });

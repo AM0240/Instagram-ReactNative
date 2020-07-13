@@ -45,7 +45,6 @@ export default class Item extends React.Component {
 
 const Metadata = ({ name, description }) => (
   <View style={styles.padding}>
-    <IconBar />
     <Text style={styles.text}>{name}</Text>
     <Text style={styles.subtitle}>{description}</Text>
   </View>
@@ -57,7 +56,6 @@ const Header = ({ name, image }) => (
       <Image style={styles.avatar} source={image} />
       <Text style={styles.text}>{name}</Text>
     </View>
-    <Icon name="ios-more" />
   </View>
 );
 
@@ -67,13 +65,13 @@ const Icon = ({ name }) => (
 
 const IconBar = () => (
   <View style={styles.row}>
-    <View style={styles.row}>
-      <Icon name="ios-heart-empty" />
-      <Icon name="ios-chatbubbles" />
-      <Icon name="ios-send"/>
-    </View>
-    <Icon name="ios-bookmark" />
+  <View style={styles.row}>
+    <Icon name="ios-heart-empty" />
+    <Icon name="ios-chatbubbles" />
+    <Icon name="ios-send"/>
   </View>
+  <Icon name="ios-bookmark" />
+</View>
 );
 
 const styles = StyleSheet.create({

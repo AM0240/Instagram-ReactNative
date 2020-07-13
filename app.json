@@ -1,26 +1,26 @@
 {
   "expo": {
-    "name": "과기스타그램",
+    "name": "InstaCopyWithExpo",
     "description": "Instagram clone using Expo",
-    "slug": "gnstagram",
+    "slug": "none",
     "privacy": "unlisted",
     "sdkVersion": "35.0.0",
     "version": "1.0.0",
     "orientation": "portrait",
     "primaryColor": "#cccccc",
-    "icon": "./assets/icons/instagram.png",
+    "icon": "./assets/icons/logo.png",
     "loading": {
-      "icon": "./assets/icons/instagram.png",
+      "icon": "./assets/icons/logo.png",
       "hideExponentText": false
     },
     "packagerOpts": {
       "assetExts": ["ttf", "mp4", "otf", "xml"]
     },
     "ios": {
-      "bundleIdentifier": "com.TeamINT.gnstagram"
+      "bundleIdentifier": "instacopy.expo.am0240"
     },
     "android": {
-      "package": "com.TeamINT.gnstagram"
+      "package": "instacopy.expo.am0240"
     }
   }
 }

@@ -1,11 +1,12 @@
 {
-  "name": "firebase-basic-instagram",
+  "name": "insta-copy-expo",
   "version": "0.0.0",
   "description": "No description",
-  "author": null,
+  "author": "AM0240",
   "private": true,
   "main": "node_modules/expo/AppEntry.js",
   "dependencies": {
+    "@react-native-community/toolbar-android": "^0.1.0-rc.2",
     "expo": "^35.0.0",
     "expo-constants": "~7.0.0",
     "expo-google-app-auth": "^7.0.0",
@@ -18,7 +19,7 @@
     "react-native": "https://github.com/expo/react-native/archive/sdk-35.0.0.tar.gz",
     "react-native-base": "^1.1.0",
     "react-native-gesture-handler": "^1.5.0",
-    "react-native-vector-icons": "^6.6.0",
+    "react-native-vector-icons": "6.6.0",
     "react-navigation": "2.6.0",
     "react-navigation-header-buttons": "^1.2.1",
     "uuid": "3.3.2"

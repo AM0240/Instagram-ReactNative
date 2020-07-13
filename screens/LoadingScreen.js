@@ -34,7 +34,7 @@ class LoadingScreen extends Component {
 
       <View style={styles.container}>
         <ActivityIndicator size='large'/>
-        <Text style={{marginTop:10}}>로그인 테스트</Text>
+        <Text style={{marginTop:10}}>로그인 확인... 이 페이지는 무시하세요</Text>
       </View>
     );
   }
