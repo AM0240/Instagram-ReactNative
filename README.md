@@ -14,12 +14,14 @@
 * expo start
 - - -
 
-## 기능 
+## 주요기능 
 
 * Firebase 연동
 * google sign-in
 * infinite scrolling
-
+* 사진촬영 업로드
+* 개인프로필 설정
+- - -
 
 ![view](https://user-images.githubusercontent.com/52531687/87317436-f324db80-c561-11ea-82bf-0a106ee84902.gif)
 ![upload](https://user-images.githubusercontent.com/52531687/87317437-f4ee9f00-c561-11ea-82ae-f78689498541.gif)
